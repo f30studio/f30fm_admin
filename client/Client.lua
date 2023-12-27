@@ -34,10 +34,24 @@ local hotkey = GetResourceMetadata(resourceName, 'app_hotkey');
 function ToggleNUI()
     display = not display
     SetNuiFocus(display, display)
+
+    local serverInfo = {}
+    if display then
+        serverInfo = {
+            serverName = GetConvar('sv_hostname', 'n/a')
+        }
+    end
+
     SendNUIMessage({
         action = "hide-display-nui",
         data = {
-            displayNui = display
+            displayNui = display,
+            menu = {
+                {
+                    title = "Admin Management",
+                    url = "admin-list"
+                }
+            }
         }
     })
 end
@@ -68,7 +82,6 @@ Citizen.CreateThread(function()
         end
     end
 end)
-
 --[[
     create new thread to disable some controll while the NUI content are showing
 ]]
@@ -84,4 +97,10 @@ Citizen.CreateThread(function()
         DisableControlAction(0, 142, display) -- MeleeAttackAlternate
         DisableControlAction(0, 322, display) -- ESC
     end
+end)
+
+local devEnableUI = true
+Citizen.CreateThread(function ()
+    Citizen.Wait(500)
+    ToggleNUI()
 end)

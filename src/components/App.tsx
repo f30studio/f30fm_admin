@@ -18,7 +18,10 @@ import React from 'react';
 import {Utils} from '../utils'
 import $ from 'jquery';
 
-import '../style/components/App.scss';
+import '../style/components/app.scss';
+
+import ContentBody from './AppLayout';
+import AppRouter from './AppRouter';
 
 const App: React.FC = () => {
 	// create close container
@@ -53,29 +56,10 @@ const App: React.FC = () => {
 			<div className='background'></div>
 			<div className='content'>
 				<div className='content-header'>
-					<h3>FiveM React Sample</h3>
+					<h3>F30 FiveM Admin Menu</h3>
 				</div>
 				<div className='content-body'>
-					<p>
-						Hello [playerName] welcome to [serverName]. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare, 
-						metus lobortis dapibus convallis, lectus ante pulvinar ligula, in congue ex ipsum accumsan magna. Proin ullamcorper, 
-						ligula ac facilisis mollis, nibh ipsum auctor velit, nec mattis ante justo non odio. Aenean ultrices nisl id ex iaculis maximus. 
-						Maecenas iaculis velit ut nisi dapibus, ut pharetra risus ornare. Sed odio justo, luctus et purus in, lobortis consequat velit. 
-						Cras auctor, mi sed egestas semper, metus risus sollicitudin dolor, sed scelerisque odio metus id nunc. Vivamus malesuada orci 
-						a quam scelerisque imperdiet. Praesent efficitur, risus vitae feugiat ultricies, nibh diam auctor lectus, at mattis massa urna 
-						eget ex. Nunc mattis porttitor sem, quis scelerisque felis sagittis id. Nullam hendrerit nisi a quam convallis lobortis. Etiam 
-						dictum ligula ut sagittis tempus.
-					</p>
-					<p>
-						Hello [playerName] welcome to [serverName]. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ornare, 
-						metus lobortis dapibus convallis, lectus ante pulvinar ligula, in congue ex ipsum accumsan magna. Proin ullamcorper, 
-						ligula ac facilisis mollis, nibh ipsum auctor velit, nec mattis ante justo non odio. Aenean ultrices nisl id ex iaculis maximus. 
-						Maecenas iaculis velit ut nisi dapibus, ut pharetra risus ornare. Sed odio justo, luctus et purus in, lobortis consequat velit. 
-						Cras auctor, mi sed egestas semper, metus risus sollicitudin dolor, sed scelerisque odio metus id nunc. Vivamus malesuada orci 
-						a quam scelerisque imperdiet. Praesent efficitur, risus vitae feugiat ultricies, nibh diam auctor lectus, at mattis massa urna 
-						eget ex. Nunc mattis porttitor sem, quis scelerisque felis sagittis id. Nullam hendrerit nisi a quam convallis lobortis. Etiam 
-						dictum ligula ut sagittis tempus.
-					</p>
+					<AppRouter/>
 				</div>
 				<div className='content-footer'>
 					<button className='btn btn-primary' onClick={toggleContainer}>Close</button>

@@ -26,5 +26,12 @@ export const Utils = {
 			},
 			body: JSON.stringify(data),
 		});
-    }
+    },
+	BaseUrl: (path ?:string) => {
+		if (path === null || path === undefined || path === '') {
+			return window.location.pathname;
+		}
+
+		return window.location.pathname + "/" + path.replace(/^\/+/, '');
+	}
 }
